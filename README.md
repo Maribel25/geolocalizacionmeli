@@ -1,2 +1,2 @@
 # geolocalizacionmeli
-Proyecto geolocalizacion mercadolibre
+Proyecto geolocalizacion
