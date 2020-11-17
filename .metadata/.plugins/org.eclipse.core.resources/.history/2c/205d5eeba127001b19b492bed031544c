@@ -1,0 +1,8 @@
+package com.meli.service;
+
+import java.util.Map;
+
+public interface ConfigurationSettingService {
+
+	public Map<String,String> getKeys();
+}

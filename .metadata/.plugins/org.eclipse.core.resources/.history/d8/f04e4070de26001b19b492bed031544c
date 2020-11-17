@@ -1,0 +1,63 @@
+package com.meli.exceptionHandler;
+
+import java.util.ArrayList;
+import java.util.List;
+import com.meli.model.DTOApplicationErrorData;
+
+
+public class CustomizedException extends RuntimeException {
+	
+	private static final long serialVersionUID = 3414634370641558044L;
+	private DTOApplicationErrorData applicationErrorData;
+	
+	public CustomizedException(int statusCode, String applicationStatusCodeSource, String applicationEventTableName, 
+			int idApplicationEventLog, java.util.List<String> statusCodeParameters){
+		this(statusCode, applicationStatusCodeSource, null);
+	}
+
+	public CustomizedException(int statusCode, String applicationStatusCodeSource, String applicationEventTableName, 
+			int idApplicationEventLog){
+		this(statusCode, applicationStatusCodeSource, applicationEventTableName, idApplicationEventLog, null, null);
+	}
+
+	public CustomizedException(int statusCode, String applicationStatusCodeSource, String message){
+		setApplicationErrorData(new DTOApplicationErrorData());
+		getApplicationErrorData().setMessage(message);
+		getApplicationErrorData().setApplicationStatusCodeSource(applicationStatusCodeSource);
+		getApplicationErrorData().setStatusCode(statusCode);
+	}
+	
+	public CustomizedException(int statusCode, String applicationStatusCodeSource, String message){
+		setApplicationErrorData(new DTOApplicationErrorData());
+		getApplicationErrorData().setMessage(message);
+		getApplicationErrorData().setApplicationStatusCodeSource(applicationStatusCodeSource);
+		getApplicationErrorData().setStatusCode(statusCode);
+	}
+
+	public CustomizedException(int statusCode, String applicationStatusCodeSource, ArrayList<String> statusCodeParameters){
+		this(statusCode, null);
+	}
+
+	public CustomizedException(int statusCode, String applicationStatusCodeSource)
+	{
+		this(statusCode, null, null);
+	}
+	
+	public CustomizedException(int statusCode, String message, String applicationStatusCodeSource)
+	{
+		this(statusCode, null, message);
+	}
+
+	public CustomizedException(DTOApplicationErrorData applicationErrorData){
+		super(applicationErrorData.getMessage());
+		setApplicationErrorData(applicationErrorData);
+	}
+
+	public DTOApplicationErrorData getApplicationErrorData() {
+		return applicationErrorData;
+	}
+
+	public void setApplicationErrorData(DTOApplicationErrorData applicationErrorData) {
+		this.applicationErrorData = applicationErrorData;
+	}
+}

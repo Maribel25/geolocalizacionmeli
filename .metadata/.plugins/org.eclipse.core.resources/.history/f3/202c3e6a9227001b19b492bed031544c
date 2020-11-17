@@ -1,0 +1,8 @@
+package com.meli.model;
+
+import javax.persistence.Table;
+
+@Table(name = "configuration_setting")
+public class ConfigurationSetting {
+
+}

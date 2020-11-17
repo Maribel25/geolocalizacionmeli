@@ -1,0 +1,13 @@
+package com.meli.model;
+
+import java.util.List;
+
+public class RestCountriesCode {
+	
+	private String name;
+	private String nativeName;
+	private Borders borders;
+	private List<Languages> languages;
+	
+
+}

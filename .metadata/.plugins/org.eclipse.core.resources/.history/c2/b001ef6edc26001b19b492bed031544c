@@ -1,0 +1,59 @@
+package com.meli.utils;
+
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.RestTemplate;
+
+public class RestClient {
+	
+	
+	public static String GET(String parameter) {
+		
+	}
+	
+	public static String GET(String parameter, String accessKey) {
+		
+	}
+	
+	/**
+	 * getGeoForIp
+	 * @param <T>
+	 * @param ip
+	 * @return String
+	 */
+	//ver manejo de errores
+	@SuppressWarnings("unchecked")
+	private static <T> T getGeoForIp(String ip){
+	    final String uri = EndpointConst.geoIp + ip;
+	    RestTemplate restTemplate = new RestTemplate();
+	    T result;
+	    try{
+	    	result = (T)restTemplate.getForObject(uri, String.class);
+	    }catch (HttpClientErrorException e ) {
+			result = (T)e.getStatusCode(); 
+		}
+	    return result;
+	}
+	
+	/**
+	 * getContryCodeInfo
+	 * @param countryCode
+	 * @return String
+	 */
+	private static String getContryCodeInfo(String countryCode){
+	    final String uri = EndpointConst.countryCodeInfo + countryCode;
+	    RestTemplate restTemplate = new RestTemplate();
+	    return restTemplate.getForObject(uri, String.class);
+	}
+	
+	/**
+	 * getDataFixerLatestInfo
+	 * @param currencyCode
+	 */
+	private static String getDataFixerLatestInfo(String currencyCode){
+		String access_key = "44262cdf6064d216d0da23d7f5fba945";
+	    final String uri = EndpointConst.dataFixerLatest+"access_key="+access_key;
+	    RestTemplate restTemplate = new RestTemplate();
+	    return restTemplate.getForObject(uri, String.class);
+	}
+
+}

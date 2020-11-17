@@ -1,0 +1,10 @@
+package com.meli.service;
+
+import com.meli.model.Statistic;
+
+public interface StatisticInterface extends CrudRepository<Customer, Long>{
+	
+	
+	public void saveStatistic(Statistic Statistic);
+
+}

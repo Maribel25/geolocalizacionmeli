@@ -1,0 +1,20 @@
+package com.meli;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
+@SpringBootApplication
+public class GeolocalizacionIpsApplication extends SpringBootServletInitializer{
+
+	 @Override
+	 protected SpringApplicationBuilder configure(GeolocalizacionIpsApplication application) {
+		return application.sources(GeolocalizacionIpsApplication.class);
+	 }
+	 
+	public static void main(String[] args) {
+		SpringApplication.run(GeolocalizacionIpsApplication.class, args);
+	}
+
+}

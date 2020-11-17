@@ -1,0 +1,10 @@
+package com.meli.service;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.meli.model.ConfigurationSetting;
+import com.meli.model.Statistic;
+
+public interface ConfigurationSettingService extends CrudRepository<ConfigurationSetting, String>{
+
+}

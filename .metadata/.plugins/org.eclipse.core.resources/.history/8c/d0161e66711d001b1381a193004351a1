@@ -1,0 +1,5 @@
+package net.itinajero.controller;
+
+public class HomeController {
+
+}

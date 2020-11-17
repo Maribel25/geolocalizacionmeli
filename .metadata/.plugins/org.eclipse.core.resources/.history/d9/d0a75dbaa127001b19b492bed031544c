@@ -1,0 +1,11 @@
+package com.meli.service;
+
+import java.util.List;
+import java.util.Map;
+
+import com.meli.model.ConfigurationSetting;
+
+public interface ConfigurationSettingService {
+
+	public Map<String,String> getKeys();
+}

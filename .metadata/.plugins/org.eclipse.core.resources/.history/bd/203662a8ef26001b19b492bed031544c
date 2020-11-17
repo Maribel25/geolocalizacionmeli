@@ -1,0 +1,25 @@
+package com.meli.model;
+
+
+public class FormModel {
+	
+	private String ip;
+	private Statistic statistic;
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public Statistic getStatistic() {
+		return statistic;
+	}
+
+	public void setStatistic(Statistic statistic) {
+		this.statistic = statistic;
+	}
+	
+}

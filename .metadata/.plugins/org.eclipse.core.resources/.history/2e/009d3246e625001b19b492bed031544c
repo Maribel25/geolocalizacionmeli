@@ -1,0 +1,10 @@
+package com.meli.service;
+
+import com.meli.model.Statistic;
+
+public interface StatisticInterface {
+	
+	
+	public Boolean saveStatistic(Statistic Statistic);
+
+}

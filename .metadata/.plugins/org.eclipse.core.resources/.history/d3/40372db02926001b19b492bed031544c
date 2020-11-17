@@ -1,0 +1,13 @@
+package com.meli.service;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.meli.model.Statistic;
+
+public interface StatisticService extends CrudRepository<Statistic, Integer>{
+	
+
+	List<Statistic> findByCountryCode(String countryCode);
+}

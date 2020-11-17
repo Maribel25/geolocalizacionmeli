@@ -1,0 +1,70 @@
+package com.icard.util.dtomapper.generic.response.dto;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.icard.util.dtomapper.dto.DTOBase;
+
+public class DTOApplicationErrorData extends DTOBase{
+	
+	@JsonProperty("IdApplicationEventLog")
+	private int idApplicationEventLog;
+	
+	@JsonProperty("StatusCode")
+	private int statusCode;
+	
+	@JsonProperty("ApplicationEventTableName")
+	private String applicationEventTableName;
+	
+	@JsonProperty("ApplicationStatusCodeSource")
+	private String applicationStatusCodeSource;//esto lo usaria con un error de los enum. (cuando es 500 valor global y si es de alguna app y tiene enum, poner ese)
+	
+	@JsonProperty("Message")
+	private String message;
+	
+	@JsonProperty("StatusCodeParameters")
+	private List<String> statusCodeParameters;//para el framework de parametros 
+	
+	public int getIdApplicationEventLog() {
+		return idApplicationEventLog;
+	}
+	public void setIdApplicationEventLog(int idApplicationEventLog) {
+		this.idApplicationEventLog = idApplicationEventLog;
+	}
+	public int getStatusCode() {
+		return statusCode;
+	}
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
+	}
+	public String getApplicationEventTableName() {
+		return applicationEventTableName;
+	}
+	public void setApplicationEventTableName(String applicationEventTableName) {
+		this.applicationEventTableName = applicationEventTableName;
+	}
+	public String getApplicationStatusCodeSource() {
+		return applicationStatusCodeSource;
+	}
+	public void setApplicationStatusCodeSource(String applicationStatusCodeSource) {
+		this.applicationStatusCodeSource = applicationStatusCodeSource;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public List<String> getStatusCodeParameters() {
+		return statusCodeParameters;
+	}
+	public void setStatusCodeParameters(List<String> statusCodeParameters) {
+		this.statusCodeParameters = statusCodeParameters;
+	}
+
+	public final String getApplicationEventLogUICode(){
+		//return ResponseTypesHelper.GetApplicationEventLogUICode(this);
+		//TODO: ResponseTypesHelper AGREGAR
+		return null;
+	}
+}

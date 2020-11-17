@@ -1,0 +1,105 @@
+package com.meli.service.impl;
+
+import com.meli.dao.StatisticRepositoryDAO;
+import com.meli.model.CountryCodeInfo;
+import com.meli.model.Statistic;
+import com.meli.service.StatisticService;
+
+import java.util.List;
+import java.util.Optional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class StatisticServiceImpl implements StatisticService{
+
+
+	@PersistenceContext
+    private EntityManager entityManager;
+    
+	@Autowired 
+	StatisticRepositoryDAO srd;
+	
+	@Override
+	public <S extends Statistic> Iterable<S> saveAll(Iterable<S> entities) {
+		return null;
+	}
+
+	@Override
+	public Optional<Statistic> findById(Integer id) {
+		return srd.findById(id);
+	}
+	
+
+	@Override
+	public boolean existsById(Integer id) {
+		return srd.existsById(id);
+	}
+
+	@Override
+	public Iterable<Statistic> findAll() {
+		return srd.findAll();
+	}
+
+	@Override
+	public Iterable<Statistic> findAllById(Iterable<Integer> ids) {
+		return null;
+	}
+
+	@Override
+	public long count() {
+		return 0;
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+		
+	}
+
+	@Override
+	public void delete(Statistic entity) {
+		
+	}
+
+	@Override
+	public void deleteAll(Iterable<? extends Statistic> entities) {
+		
+	}
+
+	@Override
+	public void deleteAll() {
+		
+	}
+
+	@Override
+	public <S extends Statistic> S save(S entity) {
+		return srd.save(entity);
+	}
+	
+	public Statistic findByCountryCode(String countryCode) {
+		return srd.findByCountryCode(countryCode);
+	}
+
+	public void saveStatistic(CountryCodeInfo cci) {
+		Statistic st = srd.findByCountryCode(countryInfo.getCountryCode());
+		List<Integer> latlng = countryCodeInfo.getLatlng();
+			int distanceKilometers = calcDistance(Integer.valueOf(latlng.get(0)), Integer.valueOf(latlng.get(1)));
+			if(st!=null) {
+				Integer invocations = st.getInvocations();
+				invocations++;
+				st.setInvocations(invocations);
+				statisticService.save(st);
+			}else {
+				st = new Statistic();
+				st.setCountryCode(countryInfo.getCountryCode());
+				st.setCountry(countryCodeInfo.getNativeName());
+				st.setDistance(distanceKilometers);//km
+				st.setInvocations(1);
+				statisticService.save(st);
+			}
+	}
+}

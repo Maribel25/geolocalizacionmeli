@@ -1,0 +1,10 @@
+
+
+
+
+
+
+<!--spring.datasource.url=jdbc:oracle:thin:@//172.18.1.98:1521/O11ACIDV-->
+<!--spring.datasource.username=icard-->
+<!--spring.datasource.password=icarddaci-->
+<!--spring.datasource.driver-class-name=oracle.jdbc.OracleDriver-->

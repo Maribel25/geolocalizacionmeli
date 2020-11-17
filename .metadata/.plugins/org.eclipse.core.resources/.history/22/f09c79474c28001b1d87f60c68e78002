@@ -1,0 +1,12 @@
+spring:
+    profiles: container
+    jpa:
+        database: MYSQL
+        hibernate:
+            ddl-auto: validate
+
+    datasource:
+        url: jdbc:mysql://mysql_container:3306/geo_schema
+        username: mysqluser
+        password: secret
+        driver-class-name: com.mysql.jdbc.Driver

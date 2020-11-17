@@ -1,0 +1,92 @@
+package com.meli.service.impl;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.stereotype.Service;
+
+import com.meli.model.ConfigurationSetting;
+import com.meli.service.ConfigurationSettingService;
+
+@Service
+@Configurable
+public class ConfigurationSettingImp implements ConfigurationSettingService{
+	
+	public static Map<String, String> keys;
+
+	@Autowired
+	static ConfigurationSettingService cs;
+	
+	public static Map<String,String> getKeys() {
+		if(keys == null) {
+			List<ConfigurationSetting> cfLst = (List<ConfigurationSetting>)cs.findAll();
+			if(cfLst!=null && cfLst.size()>0) {
+				for (ConfigurationSetting cs : cfLst) {
+					keys = new HashMap<String, String>();
+					keys.put(cs.getKey(), cs.getValue());
+				}
+			}
+		}
+		return keys;
+	}
+
+	@Override
+	public <S extends ConfigurationSetting> S save(S entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <S extends ConfigurationSetting> Iterable<S> saveAll(Iterable<S> entities) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<ConfigurationSetting> findById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean existsById(String id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Iterable<ConfigurationSetting> findAll() {
+		return null;
+	}
+
+	@Override
+	public Iterable<ConfigurationSetting> findAllById(Iterable<String> ids) {
+		return null;
+	}
+
+	@Override
+	public long count() {
+		return 0;
+	}
+
+	@Override
+	public void deleteById(String id) {
+	}
+
+	@Override
+	public void delete(ConfigurationSetting entity) {
+	}
+
+	@Override
+	public void deleteAll(Iterable<? extends ConfigurationSetting> entities) {
+	}
+
+	@Override
+	public void deleteAll() {
+	}
+
+}

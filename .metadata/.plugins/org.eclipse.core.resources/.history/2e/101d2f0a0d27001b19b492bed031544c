@@ -1,0 +1,13 @@
+package com.meli.utils;
+
+public class EndpointConst {
+	
+	//Los siguientes enpoints podrían configurarse por base de datos
+	public static final String geoIp = "https://api.ip2country.info/ip?";
+	public static final String countryCodeInfo = "https://restcountries.eu/rest/v2/alpha/";
+	public static final String dataFixerLatest = "http://data.fixer.io/api/latest?";
+	public static final String accessKey = "44262cdf6064d216d0da23d7f5fba945";
+	public static final String latArg = "-34";
+	public static final String longArg = "-34";
+
+}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Geolocalizacion Ips Meli</title>
+	</head>
+	<body>	
+		<h1>Respuesta de geolocalizaci&oacuten</h1>
+		<p th:utext="${mensajeFinal}"></p>
+		
+		<form action="#" th:action="@{/processForm}" th:object="${formModel}" method="post">
+		  <input type="text" th:field="*{ip}" />
+		  <input type="reset" />
+		</form>
+	</body>
+</html>

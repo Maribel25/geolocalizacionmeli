@@ -1,0 +1,18 @@
+package com.meli.model;
+
+import java.util.Map;
+
+public class RatesData {
+	
+	private Map<String, Double> currencyValue;
+
+	public Map<String, Double> getCurrencyValue() {
+		return currencyValue;
+	}
+
+	public void setCurrencyValue(Map<String, Double> currencyValue) {
+		this.currencyValue = currencyValue;
+	}
+
+	
+}

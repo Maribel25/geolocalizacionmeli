@@ -1,0 +1,8 @@
+package com.meli.utils;
+
+public class EndpointConst {
+	
+	public static final String geoIp = "https://api.ip2country.info/ip?";
+	public static final String countryCodeInfo = "https://restcountries.eu/rest/v2/alpha/";
+
+}

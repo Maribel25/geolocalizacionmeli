@@ -1,0 +1,11 @@
+package com.meli.service;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.meli.model.Statistic;
+
+public interface StatisticService extends CrudRepository<Statistic, Integer>{
+	
+	public void saveStatistic(Statistic Statistic);
+
+}

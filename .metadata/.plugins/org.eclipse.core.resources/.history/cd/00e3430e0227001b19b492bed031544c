@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Geolocalizacion Ips Meli</title>
+	</head>
+	<body>	
+		<h1>Bienvenido a geolocalizaci&oacuten Meli</h1>
+		<form action="#" th:action="@{/processForm}" th:object="${formModel}" method="post">
+		  <input type="text" th:field="*{ip}" />
+		  <input type="submit" />
+		</form>
+		
+		<h1>Check statistics</h1>
+		<form action="#" th:action="@{/getStatisticReport}" method="get">
+		  <input type="submit" name="estadisticas" title="Hola"/>
+		</form>
+		
+	</body>
+</html>

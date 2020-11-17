@@ -1,0 +1,14 @@
+package com.meli.dao;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.meli.model.Statistic;
+
+@Repository
+public interface StatisticRepositoryDAO extends JpaRepository<Statistic, Integer>{
+
+	List<Statistic> findByCountryCode(String countryCode);
+}

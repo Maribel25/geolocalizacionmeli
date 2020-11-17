@@ -1,0 +1,13 @@
+package com.meli.model;
+
+import javax.swing.ImageIcon;
+
+public class CountryInfo {
+
+	private String countryCode;
+	private String countryCode3;
+	private String countryName;
+	private ImageIcon countryEmoji;
+	
+	
+}

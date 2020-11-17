@@ -1,0 +1,25 @@
+version: "3"
+services:
+     
+  geolocalizacionips:
+    image: geolocalizacionips
+    network_mode: bridge
+    external_links:
+      - mysql_container:mysql_container
+    volumes:
+      - "./wp-content/themes:/var/www/html/wp-content/themes"
+      - "./wp-content/plugins:/var/www/html/wp-content/plugins"
+      - "./wp-content/uploads:/var/www/html/wp-content/uploads"
+      - "./.htaccess:/var/www/html/.htaccess"
+    ports:
+      - 8080:8080
+    restart: always
+    container_name: geo_schema
+    environment:
+      - DATABASE_HOST=mysql_container:13306
+      - DATABASE_USER=mysqluser
+      - DATABASE_PASSWORD=secret
+      - DATABASE_NAME=geo_schema
+    build:
+      context: ./
+      dockerfile: Dockerfile

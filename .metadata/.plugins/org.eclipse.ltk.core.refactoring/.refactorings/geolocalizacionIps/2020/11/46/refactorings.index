@@ -1,0 +1,29 @@
+1605052692494	Copy file
+1605053174065	Rename package 'com.meli.data'
+1605061042738	Delete element
+1605066736700	Rename type 'RestCountriesCode'
+1605066784341	Rename type 'CountrieCodeInfo'
+1605073911840	Extract local variable 'double1'
+1605118131084	Delete element
+1605118607655	Move compilation unit
+1605118611999	Delete element
+1605185463789	Extract method 'extracted'
+1605213006179	Delete element
+1605288261132	Rename type 'StatisticsInterface'
+1605295641121	Rename type 'Statistics'
+1605311805905	Rename type 'StatisticInterface'
+1605315403134	Extract local variable 'save'
+1605324661830	Extract local variable 'findByCountryCode'
+1605324773626	Extract local variable 'statistic'
+1605401655498	Delete element
+1605403947340	Extract local variable 'applicationErrorData'
+1605409494213	Extract method 'buildResponse'
+1605409928723	Extract local variable 'latlng'
+1605411409950	Extract local variable 'findAll'
+1605416832798	Copy file
+1605416840729	Rename resource 'resultado2.html'
+1605416848525	Rename resource 'resultado.html'
+1605480554817	Rename type 'EndpointConst'
+1605481081321	Rename package 'com.meli.exceptionHandler'
+1605481939872	Copy compilation unit
+1605482884312	Delete element

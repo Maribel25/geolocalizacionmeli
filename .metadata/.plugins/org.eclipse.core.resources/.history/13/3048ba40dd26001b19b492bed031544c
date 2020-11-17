@@ -1,0 +1,27 @@
+public class DTOApplicationErrorData{
+	
+	private int statusCode;
+	
+	private String applicationStatusCodeSource;
+	
+	private String message;
+		
+	public int getStatusCode() {
+		return statusCode;
+	}
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
+	}
+	public String getApplicationStatusCodeSource() {
+		return applicationStatusCodeSource;
+	}
+	public void setApplicationStatusCodeSource(String applicationStatusCodeSource) {
+		this.applicationStatusCodeSource = applicationStatusCodeSource;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+}

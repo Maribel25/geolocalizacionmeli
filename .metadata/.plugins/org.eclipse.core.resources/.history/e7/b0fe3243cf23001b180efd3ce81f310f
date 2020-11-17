@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Geolocalizacion Ips Meli</title>
+	</head>
+	<body>	
+		<h1>Respuesta de geolocalizaci&oacuten</h1>
+		<p th:text="${mensajeFinal}"></p>
+	</body>
+</html>

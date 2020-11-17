@@ -1,0 +1,87 @@
+package com.meli.service.impl;
+
+import com.meli.dao.StatisticRepositoryDAO;
+import com.meli.model.Statistic;
+import com.meli.service.StatisticService;
+
+import java.util.List;
+import java.util.Optional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class StatisticServiceImpl implements StatisticService{
+
+
+	@PersistenceContext
+    private EntityManager entityManager;
+    
+	@Autowired 
+	StatisticRepositoryDAO srd;
+	
+	@Override
+	public <S extends Statistic> Iterable<S> saveAll(Iterable<S> entities) {
+		return null;
+	}
+
+	@Override
+	public Optional<Statistic> findById(Integer id) {
+		return srd.findById(id);
+	}
+	
+
+	@Override
+	public boolean existsById(Integer id) {
+		return srd.existsById(id);
+	}
+
+	@Override
+	public Iterable<Statistic> findAll() {
+		return srd.findAll();
+	}
+
+	@Override
+	public Iterable<Statistic> findAllById(Iterable<Integer> ids) {
+		return null;
+	}
+
+	@Override
+	public long count() {
+		return 0;
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+		
+	}
+
+	@Override
+	public void delete(Statistic entity) {
+		
+	}
+
+	@Override
+	public void deleteAll(Iterable<? extends Statistic> entities) {
+		
+	}
+
+	@Override
+	public void deleteAll() {
+		
+	}
+
+	@Override
+	public <S extends Statistic> S save(S entity) {
+		return srd.save(entity);
+	}
+
+	@Override
+	public List<Statistic> findByCountryCode(String countryCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

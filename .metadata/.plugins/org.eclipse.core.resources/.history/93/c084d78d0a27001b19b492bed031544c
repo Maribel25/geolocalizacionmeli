@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Geolocation Ips Meli</title>
+	</head>
+	<body>	
+		<h1>Response of Geolocation</h1>
+		<table border="1" style="width:300px">
+		    <tr>
+		        <td><p th:text=" ${report}"></p></td>
+		    </tr>
+		</table>
+		<form action="#" th:action="@{/}" method="get">
+		  <input type="submit" value="Volver"/>
+		</form>
+	</body>
+</html>

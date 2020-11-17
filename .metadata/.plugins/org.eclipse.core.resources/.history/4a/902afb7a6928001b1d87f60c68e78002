@@ -1,0 +1,30 @@
+version: "3"
+services:
+  mysql_container:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=geo_schema
+      - MYSQL_USER=mysqluser
+      - MYSQL_PASSWORD=secret
+      
+  geo_schema:
+    depends_on:
+      - mysql_container
+    image: geo_schema:latest
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: CreateNewPasswordPleaseDontCopyThis
+      WORDPRESS_DB_NAME: wordpress
+      
+  geolocalizacionips:
+    image: geolocalizacionips:latest
+    ports:
+      - 8080:8080
+    build:
+      context: ./
+      dockerfile: Dockerfile

@@ -1,0 +1,6 @@
+package com.meli.dao;
+
+@Repository
+public interface StatisticRepositoryDAO extends JpaRepository<Statistic, long>{
+
+}

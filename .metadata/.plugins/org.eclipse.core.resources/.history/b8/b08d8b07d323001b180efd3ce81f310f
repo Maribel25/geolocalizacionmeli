@@ -1,0 +1,39 @@
+package com.meli.model;
+
+import java.util.List;
+
+public class CountryCodeInfo {
+	
+	private String name;
+	private String nativeName;
+	private Borders borders;
+	private List<Languages> languages;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getNativeName() {
+		return nativeName;
+	}
+	public void setNativeName(String nativeName) {
+		this.nativeName = nativeName;
+	}
+	public Borders getBorders() {
+		return borders;
+	}
+	public void setBorders(Borders borders) {
+		this.borders = borders;
+	}
+	public List<Languages> getLanguages() {
+		return languages;
+	}
+	public void setLanguages(List<Languages> languages) {
+		this.languages = languages;
+	}
+	
+	
+
+}

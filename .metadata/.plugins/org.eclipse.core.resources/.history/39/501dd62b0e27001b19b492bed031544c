@@ -1,0 +1,129 @@
+package com.meli.service.impl;
+
+import com.meli.dao.StatisticRepositoryDAO;
+import com.meli.exceptionHandler.CustomizedException;
+import com.meli.model.CountryCodeInfo;
+import com.meli.model.CountryInfo;
+import com.meli.model.Statistic;
+import com.meli.service.StatisticService;
+
+import java.util.List;
+import java.util.Optional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class StatisticServiceImpl implements StatisticService{
+
+
+	@PersistenceContext
+    private EntityManager entityManager;
+    
+	@Autowired 
+	StatisticRepositoryDAO srd;
+	
+	@Autowired 
+	StatisticService ss;
+	
+	@Override
+	public <S extends Statistic> Iterable<S> saveAll(Iterable<S> entities) {
+		return null;
+	}
+
+	@Override
+	public Optional<Statistic> findById(Integer id) {
+		return srd.findById(id);
+	}
+	
+
+	@Override
+	public boolean existsById(Integer id) {
+		return srd.existsById(id);
+	}
+
+	@Override
+	public Iterable<Statistic> findAll() {
+		return srd.findAll();
+	}
+
+	@Override
+	public Iterable<Statistic> findAllById(Iterable<Integer> ids) {
+		return null;
+	}
+
+	@Override
+	public long count() {
+		return 0;
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+		
+	}
+
+	@Override
+	public void delete(Statistic entity) {
+		
+	}
+
+	@Override
+	public void deleteAll(Iterable<? extends Statistic> entities) {
+		
+	}
+
+	@Override
+	public void deleteAll() {
+		
+	}
+
+	@Override
+	public <S extends Statistic> S save(S entity) {
+		return srd.save(entity);
+	}
+	
+	public Statistic findByCountryCode(String countryCode) {
+		return srd.findByCountryCode(countryCode);
+	}
+
+	public Statistic saveStatistic(CountryInfo ci, CountryCodeInfo cci) {
+		try{
+			String countryCode = ci.getCountryCode();
+			Statistic st = srd.findByCountryCode(countryCode);
+			List<Integer> latlng = cci.getLatlng();
+			int distanceKilometers = calcDistance(Integer.valueOf(latlng.get(0)), Integer.valueOf(latlng.get(1)));
+			if(st!=null) {
+				Integer invocations = st.getInvocations();
+				invocations++;
+				st.setInvocations(invocations);
+				return ss.save(st);
+			}else {
+				st = new Statistic();
+				st.setCountryCode(countryCode);
+				st.setCountry(cci.getNativeName());
+				st.setDistance(distanceKilometers);//km
+				st.setInvocations(1);
+				return ss.save(st);
+			}
+		}catch (Exception e) {
+			throw new CustomizedException("An error has ocurred. Please contact DBA administrator");
+		}
+	}
+	
+	
+	/**
+	 * calcDistance
+	 * @param latB
+	 * @param longB
+	 * @return int
+	 */
+	public static int calcDistance(float latB, float longB) {
+		float latA = -34.6157437f;
+		float longA = -58.5733832f; 
+		double theDistance = (Math.sin(Math.toRadians(latA)) * Math.sin(Math.toRadians(latB)) + Math.cos(Math.toRadians(latA)) * Math.cos(Math.toRadians(latB)) * Math.cos(Math.toRadians(longA - longB))); 
+		return new Double((Math.toDegrees(Math.acos(theDistance))) * 69.09*1.6093).intValue();
+	}
+}

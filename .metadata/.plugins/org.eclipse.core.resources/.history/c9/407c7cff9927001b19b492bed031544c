@@ -1,0 +1,26 @@
+package com.meli.service.impl;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.meli.service.ConfigurationSettingService;
+
+@Service
+public class ConfigurationSettingImp {
+	
+	public static Map<String, String> keys;
+	
+	@Autowired 
+	ConfigurationSettingService cs;
+	
+	@SuppressWarnings("unchecked")
+	public Map<String,String> getKeys() {
+		if(keys == null) {
+			return (Map<String,String>)cs.findAll();
+		}
+		return keys;
+	}
+
+}

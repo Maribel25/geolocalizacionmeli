@@ -1,0 +1,4 @@
+FROM openjdk:8-jdk-alpine
+ADD target/geolocalizacionIps.jar geolocalizacionIps.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "geolocalizacionIps.jar"]

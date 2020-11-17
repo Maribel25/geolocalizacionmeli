@@ -1,0 +1,12 @@
+spring:
+    profiles: container
+    jpa:
+        database: MYSQL
+        hibernate:
+            ddl-auto: validate
+
+    datasource:
+        url: jdbc:mysql://mysql:3306/tsbacked
+        username: root
+        password: 12345
+        driver-class-name: com.mysql.jdbc.Driver

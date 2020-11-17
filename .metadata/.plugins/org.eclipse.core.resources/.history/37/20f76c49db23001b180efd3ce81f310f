@@ -1,0 +1,8 @@
+package com.meli.utils;
+
+public class EndpointConst {
+	
+	public static final String lala = "https://api.ip2country.info/ip?";
+	
+
+}

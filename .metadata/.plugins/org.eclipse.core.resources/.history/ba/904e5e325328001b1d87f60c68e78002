@@ -1,0 +1,11 @@
+version "3"
+Services: 
+	mysql-container:
+      image: mysql:8.0
+	  environment:
+	    - MYSQL_ROOT_PASSWORD=secret
+		- MYSQL_DATABASE=geo_schema
+		- MYSQL_USER=mysqluser
+		- MYSQL_PASSWORD=secret
+	  ports:
+		- 3306:3306	
